@@ -1,16 +1,16 @@
 #include<iostream>
 using namespace std;
 
-void quick(int arr[], int n){
-	for (i=1; i<n; i++){
-		for(j=i; i<n; j++){
-			if (arr[i]<arr[i-1]){
-				swap(arr[i], arr[i-1]);
-			}
-		}
-	
+void insertion(int arr[], int n){
+	for (int i=1; i<n; i++){
+	    int j=i-1;
+	    int key = arr[i];
+	    while(j>=0 && arr[j] > key){
+	        swap(arr[j], arr[j+1]);
+	        j=j-1;
+	    }
 	}
-
+	return;
 }
 
 
@@ -21,7 +21,7 @@ int main(){
 	for (i=0; i<n; i++){
 		cin>>arr[i];
 	}
-	quick(arr,n);
+	insertion(arr,n);
 	for (i=0; i<n; i++){
 		cout<<arr[i]<< " ";
 	}
